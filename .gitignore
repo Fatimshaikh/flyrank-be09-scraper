@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+cache/*.html
+!cache/.gitkeep
+output/*.json
+!output/books.json
+!output/run-report.json
