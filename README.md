@@ -10,7 +10,7 @@
 - **Data collected:** title, product URL, price, availability, star rating,
   description — all publicly listed on each book's own page.
 - **robots.txt check:** requested `https://books.toscrape.com/robots.txt` on
-  [date] — received a 404. No robots file exists. This is not itself
+  August 10, 2026 — received a 404. No robots file exists. This is not itself
   permission; the actual justification is the site's own stated purpose above.
 
 I will not reuse this code on another site without checking its rules and
@@ -27,10 +27,10 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-Produces \`output/books.json\`, \`output/errors.json\`, and \`output/run-report.json\`.
+Produces `output/books.json`, `output/errors.json`, and `output/run-report.json`.
 
 ## Stack
-Python 3 + \`requests\` + BeautifulSoup + Pydantic.
+Python 3 + `requests` + BeautifulSoup + Pydantic.
 
 ## Record schema
 | Field | Type | Notes |
@@ -46,12 +46,12 @@ Python 3 + \`requests\` + BeautifulSoup + Pydantic.
 | fetched_at | string (ISO datetime) | provenance timestamp |
 
 ## Politeness rules
-- Identifying User-Agent: \`FlyRankInternshipA9/1.0 (+repo link)\`
+- Identifying User-Agent: `FlyRankInternshipA9/1.0 (+repo link)`
 - 10s timeout per request
 - 0.6s delay between real requests (cache hits skip the delay)
 - Status code checked before parsing; only 200 is treated as success
 - One retry on timeout/5xx; no retry on 404/403
-- Development reads from \`cache/\` instead of re-hitting the site
+- Development reads from `cache/` instead of re-hitting the site
 
 ## Why no browser was needed
 All the data (title, price, description, etc.) is present directly in the HTML
@@ -81,8 +81,8 @@ JavaScript after the initial page load.
 
 ## Known limitation
 One deliberately broken/fake book URL is included in every run to prove the
-failure-handling path works end to end — this is why \`failed_pages\` is
-always 1 in the committed \`run-report.json\`, and \`book_pages_attempted\`
+failure-handling path works end to end — this is why `failed_pages` is
+always 1 in the committed `run-report.json`, and `book_pages_attempted`
 is 61 rather than 60.
 
 ## Ethics note
