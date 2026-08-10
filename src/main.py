@@ -19,4 +19,3 @@ if __name__ == "__main__":
 
     print(f"detail_pages={len(records)}")
     print(records[0])
-    print(records[25])  # should show source_page from page 2 or 3
