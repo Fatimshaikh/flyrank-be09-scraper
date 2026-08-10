@@ -29,7 +29,10 @@ def fetch(url: str, cache_name: str) -> str:
 
     headers = {"User-Agent": USER_AGENT}
     response = requests.get(url, headers=headers, timeout=TIMEOUT)
-    response.raise_for_status()  # raises for non-200
+    response.raise_for_status()
+
+    response.encoding = "utf-8"  # force correct decoding, avoid mojibake like 'Â£'
+    html = response.text
 
     html = response.text
     with open(path, "w", encoding="utf-8") as f:

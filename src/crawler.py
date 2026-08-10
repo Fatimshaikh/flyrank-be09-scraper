@@ -28,7 +28,7 @@ def discover_book_urls():
         for article in soup.select("article.product_pod h3 a"):
             href = article.get("href")
             absolute_url = urljoin(page_url, href)
-            book_urls.append(absolute_url)
+            book_urls.append((absolute_url, page_url))
 
         if pages_visited < MAX_PAGES:
             next_link = soup.select_one("li.next a")
@@ -42,9 +42,9 @@ def discover_book_urls():
 
     seen = set()
     unique_urls = []
-    for url in book_urls:
+    for url, src in book_urls:
         if url not in seen:
             seen.add(url)
-            unique_urls.append(url)
+            unique_urls.append((url, src))
 
     return unique_urls, pages_visited
