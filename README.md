@@ -61,9 +61,23 @@ with no benefit here, since nothing on Books to Scrape is rendered by
 JavaScript after the initial page load.
 
 ## Sample run report
-\`\`\`json
-[paste your actual output/run-report.json content here]
-\`\`\`
+```json
+{
+  "started_at": "2026-08-10T18:54:50.553774+00:00",
+  "duration_seconds": 1.43,
+  "catalogue_pages_fetched": 3,
+  "book_pages_attempted": 61,
+  "valid_records": 60,
+  "invalid_records": 0,
+  "failed_pages": 1,
+  "failed_page_details": [
+    {
+      "url": "https://books.toscrape.com/catalogue/this-book-does-not-exist_9999/index.html",
+      "reason": "404 Client Error: Not Found for url: https://books.toscrape.com/catalogue/this-book-does-not-exist_9999/index.html"
+    }
+  ]
+}
+```
 
 ## Known limitation
 One deliberately broken/fake book URL is included in every run to prove the
