@@ -1,8 +1,7 @@
-from fetcher import fetch
+from crawler import discover_book_urls
 
 if __name__ == "__main__":
-    html = fetch(
-        "https://books.toscrape.com/catalogue/page-1.html",
-        "catalogue-page-1.html",
-    )
-    print("Done. Length:", len(html))
+    book_urls, pages_visited = discover_book_urls()
+    print(f"catalogue_pages={pages_visited}")
+    print(f"discovered={len(book_urls)}")
+    print(f"unique_urls={len(set(book_urls))}")

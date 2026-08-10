@@ -5,7 +5,7 @@ import requests
 USER_AGENT = "FlyRankInternshipA9/1.0 (+https://github.com/Fatimshaikh/flyrank-be09-scraper)"
 TIMEOUT = 10  # seconds
 DELAY = 0.6   # seconds, polite gap between real requests
-CACHE_DIR = "cache"
+CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "cache")
 
 os.makedirs(CACHE_DIR, exist_ok=True)
 

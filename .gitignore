@@ -5,3 +5,4 @@ cache/*.html
 output/*.json
 !output/books.json
 !output/run-report.json
+src/cache/
