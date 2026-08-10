@@ -6,3 +6,4 @@ output/*.json
 !output/books.json
 !output/run-report.json
 src/cache/
+!output/errors.json
