@@ -34,7 +34,6 @@ def fetch(url: str, cache_name: str) -> str:
     response.encoding = "utf-8"  # force correct decoding, avoid mojibake like 'Â£'
     html = response.text
 
-    html = response.text
     with open(path, "w", encoding="utf-8") as f:
         f.write(html)
 
