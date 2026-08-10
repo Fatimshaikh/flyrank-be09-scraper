@@ -18,14 +18,14 @@ terms first.
 
 ## How to run
 
-\`\`\`bash
+```bash
 git clone https://github.com/Fatimshaikh/flyrank-be09-scraper.git
 cd flyrank-be09-scraper
 python -m venv venv
 source venv/Scripts/activate      # Windows Git Bash
 pip install -r requirements.txt
 python src/main.py
-\`\`\`
+```
 
 Produces \`output/books.json\`, \`output/errors.json\`, and \`output/run-report.json\`.
 
