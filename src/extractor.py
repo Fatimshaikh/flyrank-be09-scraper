@@ -6,16 +6,19 @@ from fetcher import fetch
 
 RATING_WORDS = {"One", "Two", "Three", "Four", "Five"}
 
-
 def extract_book(product_url: str, source_page: str, cache_name: str) -> dict:
     """
     Fetch one book's page and pull the 8 raw fields from it.
-    Returns a dict — no cleaning/typing yet, that's Stage 4.
+    Raises on failure — caller (main.py) catches per-page failures.
     """
-    html = fetch(product_url, cache_name)
+    html = fetch(product_url, cache_name)  # can raise on network/status failure
     soup = BeautifulSoup(html, "html.parser")
 
     product_area = soup.select_one("div.product_main")
+    if product_area is None:
+        raise ValueError(f"could not find product area on {product_url}")
+
+    # ... (rest unchanged)
     info_table = soup.select_one("table.table.table-striped")
 
     title = product_area.select_one("h1").get_text(strip=True)

@@ -17,3 +17,8 @@ def save_errors(errors: list[dict], filename: str = "errors.json"):
     path = os.path.join(OUTPUT_DIR, filename)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(errors, f, indent=2, ensure_ascii=False)
+
+def save_report(report: dict, filename: str = "run-report.json"):
+    path = os.path.join(OUTPUT_DIR, filename)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2, ensure_ascii=False)
